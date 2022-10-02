@@ -26,14 +26,14 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "terraform101" {
-  name     = "production-resources"
+  name     = "terraform101"
   location = "East US"
 }
 
 # Create a virtual network in the production-resources resource group
 resource "azurerm_virtual_network" "terraform_network" {
   name                = "production-network"
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.terraform101.name
   location            = azurerm_resource_group.terraform101.location
   address_space       = ["10.0.0.0/16"]
 }
